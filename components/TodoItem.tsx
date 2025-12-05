@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TodoItem = ({
   todo,
   onToggle,
   onDelete
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       className={`group flex flex-col p-4 bg-white border border-slate-100 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md mb-3 ${
         todo.completed ? 'opacity-75' : 'opacity-100'
       }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center gap-3">
         {/* Main Checkbox */}

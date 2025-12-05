@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
       port: 3000,
     },
     define: {
-      'process.env.API_KEY': JSON.stringify(env.API_KEY || process.env.API_KEY),
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || (process as any).env.API_KEY || ''),
     }
   }
 })
